@@ -1,169 +1,1154 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Партнёрская программа</title>
-<style>
-    body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f9f9f9; color: #333; }
-    header { background: linear-gradient(135deg, #003366, #0055aa); color: white; padding: 60px 20px; text-align: center; position: sticky; top: 0; z-index: 10; }
-    header h1 { margin: 0 0 20px; font-size: 42px; }
-    header p { font-size: 20px; max-width: 700px; margin: 0 auto 20px; }
-    nav { margin-bottom: 20px; }
-    nav a { color: #ffcc00; margin: 0 10px; text-decoration: none; font-weight: bold; }
-    section { padding: 60px 20px; max-width: 1200px; margin: 0 auto; }
-    h2 { color: #003366; font-size: 32px; margin-bottom: 25px; text-align: center; }
-    .steps { display: flex; flex-wrap: wrap; gap: 30px; justify-content: center; }
-    .step { background: white; padding: 25px; flex: 1 1 calc(50% - 30px); border-radius: 15px; box-shadow: 0 6px 15px rgba(0,0,0,0.1); transition: transform 0.3s ease; }
-    .step:hover { transform: translateY(-5px); }
-    .step h3 { margin-top: 0; color: #003366; font-size: 22px; }
-    .step p { font-size: 16px; line-height: 1.5; }
-    .stats { display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; margin-top: 30px; }
-    .stat { background: white; padding: 20px; border-radius: 10px; flex: 1 1 200px; text-align: center; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
-    .stat h3 { font-size: 28px; margin: 0; color: #0055aa; }
-    .plans { display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; margin-top: 30px; }
-    .plan { background: white; padding: 25px; border-radius: 15px; flex: 1 1 300px; text-align: center; box-shadow: 0 6px 15px rgba(0,0,0,0.1); }
-    .plan h3 { margin: 0 0 15px; font-size: 22px; color: #003366; }
-    .faq { max-width: 800px; margin: 0 auto; }
-    .faq-item { margin-bottom: 15px; }
-    .faq-item h4 { margin: 0; cursor: pointer; padding: 10px; background: #eee; border-radius: 8px; }
-    .faq-item p { display: none; margin: 0; padding: 10px; background: #fff; border-radius: 0 0 8px 8px; }
-    .contact { background: #003366; color: white; padding: 60px 20px; text-align: center; }
-    .contact a { color: #ffcc00; text-decoration: none; }
-    button { background: #ffcc00; color: #003366; border: none; padding: 18px 30px; font-size: 18px; border-radius: 8px; cursor: pointer; font-weight: bold; }
-    button:hover { background: #ffdb4d; }
-    input, select { padding: 12px; margin: 10px 0; width: 100%; border-radius: 8px; border: 1px solid #ccc; font-size: 16px; }
-    .reward { font-weight: bold; color: #003366; margin-top: 12px; font-size: 18px; }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Партнёрская программа</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --slate-50: #f8fafc;
+            --slate-100: #f1f5f9;
+            --slate-200: #e2e8f0;
+            --slate-300: #cbd5e1;
+            --slate-400: #94a3b8;
+            --slate-500: #64748b;
+            --slate-600: #475569;
+            --slate-700: #334155;
+            --slate-800: #1e293b;
+            --slate-900: #0f172a;
+            --primary: #3b82f6;
+            --radius: 0.5rem;
+        }
 
-    /* Мобильная адаптация */
-    @media (max-width: 768px) {
-        header h1 { font-size: 28px; }
-        header p { font-size: 16px; }
-        nav a { display: block; margin: 5px 0; }
-        .steps, .plans, .stats { flex-direction: column; gap: 20px; }
-        .step, .plan, .stat { flex: 1 1 100%; }
-        section { padding: 30px 15px; }
-    }
-</style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            background: linear-gradient(to bottom, var(--slate-50), white, var(--slate-50));
+            color: var(--slate-900);
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.5rem 1.5rem;
+            font-weight: 500;
+            border-radius: 1rem;
+            border: 1px solid transparent;
+            cursor: pointer;
+            transition: all 0.2s;
+            text-decoration: none;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background-color: var(--slate-900);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--slate-800);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border-color: var(--slate-200);
+            color: var(--slate-900);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--slate-100);
+        }
+
+        .btn-ghost {
+            background-color: transparent;
+            color: var(--slate-900);
+        }
+
+        .btn-ghost:hover {
+            background-color: var(--slate-100);
+        }
+
+        .btn-lg {
+            padding: 0.75rem 1.5rem;
+            font-size: 1.125rem;
+        }
+
+        .card {
+            background: white;
+            border-radius: var(--radius);
+            border: 1px solid var(--slate-200);
+            overflow: hidden;
+        }
+
+        .card-header {
+            padding: 1.5rem 1.5rem 0;
+        }
+
+        .card-title {
+            font-weight: 600;
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .card-content {
+            padding: 1.5rem;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.25rem 0.75rem;
+            border-radius: 0.375rem;
+            font-size: 0.75rem;
+            font-weight: 500;
+            background-color: var(--slate-100);
+            color: var(--slate-700);
+        }
+
+        .input {
+            width: 100%;
+            padding: 0.5rem 0.75rem;
+            border-radius: var(--radius);
+            border: 1px solid var(--slate-300);
+            font-size: 1rem;
+        }
+
+        .input:focus {
+            outline: none;
+            border-color: var(--slate-400);
+        }
+
+        .label {
+            font-weight: 500;
+            font-size: 0.875rem;
+            margin-bottom: 0.25rem;
+            display: block;
+        }
+
+        .textarea {
+            width: 100%;
+            padding: 0.5rem 0.75rem;
+            border-radius: var(--radius);
+            border: 1px solid var(--slate-300);
+            font-size: 1rem;
+            font-family: inherit;
+            min-height: 80px;
+        }
+
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 40px;
+            height: 20px;
+        }
+
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: var(--slate-300);
+            transition: .4s;
+            border-radius: 20px;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 16px;
+            width: 16px;
+            left: 2px;
+            bottom: 2px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+
+        input:checked + .slider {
+            background-color: var(--slate-900);
+        }
+
+        input:checked + .slider:before {
+            transform: translateX(20px);
+        }
+
+        /* Navigation */
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 40;
+            backdrop-filter: blur(10px);
+            background-color: rgba(255, 255, 255, 0.7);
+            border-bottom: 1px solid var(--slate-200);
+            padding: 0.75rem 0;
+        }
+
+        .navbar-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .navbar-brand {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 600;
+        }
+
+        .navbar-links {
+            display: none;
+            align-items: center;
+            gap: 1.5rem;
+            font-size: 0.875rem;
+            color: var(--slate-600);
+        }
+
+        .navbar-links a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .navbar-links a:hover {
+            color: var(--slate-900);
+        }
+
+        .navbar-actions {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        /* Hero section */
+        .hero {
+            padding: 4rem 0;
+        }
+
+        .hero-grid {
+            display: grid;
+            gap: 2.5rem;
+        }
+
+        .hero-title {
+            font-size: 2.25rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+
+        .hero-text {
+            font-size: 1.125rem;
+            color: var(--slate-600);
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-features {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            font-size: 0.875rem;
+            color: var(--slate-500);
+        }
+
+        .hero-feature {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* Step component */
+        .step {
+            display: flex;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+        }
+
+        .step-number {
+            flex-shrink: 0;
+            width: 2rem;
+            height: 2rem;
+            border-radius: 50%;
+            background-color: var(--slate-100);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+        }
+
+        .step-content {
+            flex-grow: 1;
+        }
+
+        .step-title {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 500;
+            margin-bottom: 0.25rem;
+        }
+
+        .step-desc {
+            color: var(--slate-500);
+        }
+
+        /* Logos section */
+        .logos {
+            padding-bottom: 2.5rem;
+            margin-top: -1.5rem;
+        }
+
+        .logos-container {
+            border-radius: 1rem;
+            border: 1px solid var(--slate-200);
+            background-color: white;
+            padding: 1.25rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1.5rem;
+            overflow-x: auto;
+        }
+
+        .logos-item {
+            color: var(--slate-500);
+            font-size: 0.875rem;
+            white-space: nowrap;
+        }
+
+        /* Stats section */
+        .stats {
+            padding: 2rem 0;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+
+        .stat-value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+        }
+
+        .stat-label {
+            color: var(--slate-500);
+            font-size: 0.875rem;
+        }
+
+        /* How it works section */
+        .how-it-works {
+            padding: 3.5rem 0;
+        }
+
+        .benefits-grid {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        /* Calculator section */
+        .calculator {
+            padding: 4rem 0;
+        }
+
+        .calculator-grid {
+            display: grid;
+            gap: 2rem;
+        }
+
+        .calculator-title {
+            font-size: 1.875rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .calculator-form {
+            display: grid;
+            gap: 1.25rem;
+        }
+
+        .form-group {
+            display: grid;
+            gap: 0.5rem;
+        }
+
+        .switch-group {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.75rem;
+            color: var(--slate-500);
+        }
+
+        .result-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 0.75rem;
+        }
+
+        .result-label {
+            color: var(--slate-500);
+        }
+
+        .result-value {
+            font-weight: 600;
+        }
+
+        /* Plans section */
+        .plans {
+            padding: 3rem 0;
+        }
+
+        .plans-title {
+            font-size: 1.875rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .plans-subtitle {
+            color: var(--slate-600);
+            margin-bottom: 1.5rem;
+        }
+
+        .plans-grid {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .plan-card {
+            border: 1px solid var(--slate-200);
+        }
+
+        .plan-card.featured {
+            box-shadow: 0 0 0 2px var(--slate-900);
+        }
+
+        .plan-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1.5rem 1.5rem 0;
+        }
+
+        .plan-title {
+            font-size: 1.125rem;
+            font-weight: 600;
+        }
+
+        .plan-price {
+            font-size: 1.875rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+
+        .plan-features {
+            list-style: none;
+            margin-top: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .plan-feature {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+            font-size: 0.875rem;
+            color: var(--slate-600);
+        }
+
+        /* Legal section */
+        .legal {
+            padding: 4rem 0;
+        }
+
+        .legal-grid {
+            display: grid;
+            gap: 2rem;
+        }
+
+        .legal-title {
+            font-size: 1.875rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .legal-list {
+            list-style: none;
+            margin-top: 1rem;
+        }
+
+        .legal-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+            font-size: 0.875rem;
+            color: var(--slate-600);
+        }
+
+        /* FAQ section */
+        .faq {
+            padding: 4rem 0;
+        }
+
+        .faq-title {
+            font-size: 1.875rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+
+        .faq-grid {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .faq-question {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .faq-answer {
+            color: var(--slate-600);
+            font-size: 0.875rem;
+        }
+
+        /* CTA section */
+        .cta {
+            padding: 4rem 0;
+        }
+
+        .cta-grid {
+            display: grid;
+            gap: 2rem;
+            padding: 2.5rem;
+        }
+
+        .cta-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .cta-list {
+            list-style: none;
+            margin-top: 1rem;
+        }
+
+        .cta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+            font-size: 0.875rem;
+            color: var(--slate-600);
+        }
+
+        .cta-form {
+            display: grid;
+            gap: 1rem;
+        }
+
+        .cta-contacts {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.75rem;
+            color: var(--slate-500);
+            margin-top: 0.25rem;
+        }
+
+        /* Footer */
+        .footer {
+            border-top: 1px solid var(--slate-200);
+            background-color: white;
+            padding: 2rem 0;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 0.875rem;
+            color: var(--slate-500);
+        }
+
+        .footer-brand {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .footer-links {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .footer-links a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .footer-links a:hover {
+            color: var(--slate-900);
+        }
+
+        /* Animation classes */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(10px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Mobile styles */
+        @media (min-width: 768px) {
+            .hero-grid {
+                grid-template-columns: repeat(2, 1fr);
+                align-items: center;
+            }
+            
+            .hero-actions {
+                flex-direction: row;
+            }
+            
+            .navbar-links {
+                display: flex;
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+            
+            .benefits-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            .calculator-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .plans-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            .legal-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .faq-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .cta-grid {
+                grid-template-columns: repeat(2, 1fr);
+                padding: 2.5rem;
+            }
+            
+            .footer-content {
+                flex-direction: row;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .navbar-actions .btn:first-child {
+                display: none;
+            }
+            
+            .hero-title {
+                font-size: 1.875rem;
+            }
+            
+            .hero-features {
+                flex-wrap: wrap;
+                gap: 0.75rem;
+            }
+            
+            .logos-container {
+                flex-wrap: nowrap;
+                justify-content: flex-start;
+            }
+        }
+    </style>
 </head>
 <body>
-
-<header>
-    <nav>
-        <a href="#how">Как работает</a>
-        <a href="#stats">Статистика</a>
-        <a href="#plans">Планы</a>
-        <a href="#faq">FAQ</a>
-        <a href="#signup">Присоединиться</a>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container navbar-content">
+            <div class="navbar-brand">
+                <i class="fa-regular fa-handshake"></i>
+                Партнёрская программа
+                <span class="badge">официально</span>
+            </div>
+            <div class="navbar-links">
+                <a href="#how">Как это работает</a>
+                <a href="#calc">Калькулятор</a>
+                <a href="#plans">Вознаграждения</a>
+                <a href="#legal">Юр.чистота</a>
+                <a href="#faq">FAQ</a>
+            </div>
+            <div class="navbar-actions">
+                <a href="#contact" class="btn btn-ghost">Связаться</a>
+                <a href="#" class="btn btn-primary">Стать партнёром</a>
+            </div>
+        </div>
     </nav>
-    <h1>Партнёрская программа</h1>
-    <p>Официальный доход за продвижение товаров — легально, прозрачно и выгодно.</p>
-    <button onclick="document.getElementById('signup').scrollIntoView({behavior:'smooth'})">Присоединиться</button>
-</header>
 
-<section id="how">
-    <h2>Как это работает</h2>
-    <div class="steps">
-        <div class="step">
-            <h3>1. Регистрация</h3>
-            <p>Оформляешься как самозанятый или ИП. Мы заключаем договор.</p>
+    <!-- Hero section -->
+    <section class="hero">
+        <div class="container hero-grid">
+            <div>
+                <h1 class="hero-title fade-in">Зарабатывайте <span style="color: var(--slate-700);">официально</span> на рекомендациях</h1>
+                <p class="hero-text">Приводите компании на закупки — получайте вознаграждение как самозанятый. Никаких «серых схем»: договор, чек «Мой налог», прозрачные выплаты.</p>
+                <div class="hero-actions">
+                    <a href="#" class="btn btn-primary btn-lg">Присоединиться <i class="fa-solid fa-arrow-right ml-2" style="margin-left: 0.5rem;"></i></a>
+                    <a href="#how" class="btn btn-outline btn-lg">Как это работает</a>
+                </div>
+                <div class="hero-features">
+                    <div class="hero-feature"><i class="fa-solid fa-shield-check"></i> Законно</div>
+                    <div class="hero-feature"><i class="fa-solid fa-chart-line"></i> Прозрачно</div>
+                    <div class="hero-feature"><i class="fa-solid fa-circle-dollar"></i> Выгодно</div>
+                </div>
+            </div>
+            <div class="fade-in" style="transition-delay: 0.1s;">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title"><i class="fa-regular fa-handshake"></i> Прозрачная схема</h3>
+                    </div>
+                    <div class="card-content">
+                        <div class="step">
+                            <div class="step-number">1</div>
+                            <div class="step-content">
+                                <div class="step-title"><i class="fa-solid fa-users"></i> Регистрируйтесь как самозанятый</div>
+                                <div class="step-desc">2 минуты в приложении 'Мой налог'.</div>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                <div class="step-title"><i class="fa-solid fa-building"></i> Рекомендуйте наш товар</div>
+                                <div class="step-desc">Коммуницируйте с закупщиками/компаниями, передавайте лиды.</div>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">3</div>
+                            <div class="step-content">
+                                <div class="step-title"><i class="fa-regular fa-file-lines"></i> Оформляем сделку</div>
+                                <div class="step-desc">Мы заключаем договор с клиентом и поставляем товар.</div>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">4</div>
+                            <div class="step-content">
+                                <div class="step-title"><i class="fa-solid fa-percent"></i> Получаете процент</div>
+                                <div class="step-desc">Присылаете акт и чек — переводим вознаграждение на карту.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="step">
-            <h3>2. Продвижение</h3>
-            <p>Рекомендуешь нашу продукцию у себя в компании.</p>
+    </section>
+
+    <!-- Logos section -->
+    <section class="logos">
+        <div class="container">
+            <div class="logos-container">
+                <div class="logos-item">Чеки 'Мой налог'</div>
+                <div class="logos-item">Акты оказанных услуг</div>
+                <div class="logos-item">Агентский договор</div>
+                <div class="logos-item">Учёт лидов</div>
+                <div class="logos-item">Ежемесячные выплаты</div>
+            </div>
         </div>
-        <div class="step">
-            <h3>3. Сделка</h3>
-            <p>Компания делает заказ по рыночной цене.</p>
+    </section>
+
+    <!-- Stats section -->
+    <section class="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="card">
+                    <div class="card-content">
+                        <div class="stat-value">7–10%</div>
+                        <div class="stat-label">Средний % партнёра</div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-content">
+                        <div class="stat-value">ежемесячно</div>
+                        <div class="stat-label">Выплаты</div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-content">
+                        <div class="stat-value">самозанятый 4–6%</div>
+                        <div class="stat-label">Налоги</div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-content">
+                        <div class="stat-value">за 1 день</div>
+                        <div class="stat-label">Подключение</div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="step">
-            <h3>4. Вознаграждение</h3>
-            <p>Получаешь % от сделки официально.</p>
+    </section>
+
+    <!-- How it works section -->
+    <section id="how" class="how-it-works">
+        <div class="container">
+            <div class="benefits-grid">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title"><i class="fa-regular fa-handshake"></i> Публичная партнёрка</h3>
+                    </div>
+                    <div class="card-content">
+                        <p>Любой самозанятый может участвовать, нет 'закулисья'.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title"><i class="fa-solid fa-shield-check"></i> Юридически чисто</h3>
+                    </div>
+                    <div class="card-content">
+                        <p>Договор + акт + чек. Расходы для ИП, доход для партнёра.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title"><i class="fa-solid fa-chart-line"></i> Платим за результат</h3>
+                    </div>
+                    <div class="card-content">
+                        <p>Вознаграждение только за состоявшиеся сделки.</p>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<section id="stats">
-    <h2>Наши результаты</h2>
-    <div class="stats">
-        <div class="stat"><h3>150+</h3><p>Партнёров</p></div>
-        <div class="stat"><h3>50M₽</h3><p>Оборот</p></div>
-        <div class="stat"><h3>98%</h3><p>Довольных участников</p></div>
-    </div>
-</section>
+    <!-- Commission Calculator -->
+    <section id="calc" class="calculator">
+        <div class="container calculator-grid">
+            <div>
+                <h2 class="calculator-title"><i class="fa-solid fa-calculator"></i> Калькулятор вознаграждения</h2>
+                <p class="text-slate-600">Посчитайте, сколько вы заработаете с каждой сделки. Мы считаем от суммы <span class="font-medium">без НДС</span>.</p>
 
-<section id="plans">
-    <h2>Планы вознаграждений</h2>
-    <div class="plans">
-        <div class="plan"><h3>Старт</h3><p>5% от сделки</p></div>
-        <div class="plan"><h3>Профи</h3><p>7% от сделки</p></div>
-        <div class="plan"><h3>Партнёр</h3><p>10% от сделки</p></div>
-    </div>
-</section>
-
-<section id="faq">
-    <h2>FAQ</h2>
-    <div class="faq">
-        <div class="faq-item">
-            <h4>Зачем нужна регистрация как самозанятый?</h4>
-            <p>Это позволяет получать доход легально и официально.</p>
+                <div class="calculator-form">
+                    <div class="form-group">
+                        <label for="amount" class="label">Сумма сделки</label>
+                        <input id="amount" type="number" min="0" value="100000" class="input">
+                        <div class="switch-group">
+                            <label class="switch">
+                                <input type="checkbox" id="vat">
+                                <span class="slider"></span>
+                            </label>
+                            <label for="vat" class="cursor-pointer">Указать сумму <span class="font-medium">с НДС 20%</span></label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="percent" class="label">Процент партнёра, %</label>
+                        <input id="percent" type="number" min="0" max="100" value="7" class="input">
+                    </div>
+                </div>
+            </div>
+            <div class="fade-in" style="transition-delay: 0.1s;">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Итоги расчёта</h3>
+                    </div>
+                    <div class="card-content">
+                        <div class="result-row">
+                            <div class="result-label">Сумма сделки (ввод)</div>
+                            <div id="base-amount">100 000 ₽</div>
+                        </div>
+                        <div class="result-row">
+                            <div class="result-label">Сумма без НДС 20%</div>
+                            <div id="net-amount">83 333 ₽</div>
+                        </div>
+                        <div class="result-row">
+                            <div class="result-label">Вознаграждение (7% от базы)</div>
+                            <div id="reward-amount" class="result-value">5 833 ₽</div>
+                        </div>
+                        <div class="text-xs text-slate-500 mt-2">
+                            * Фактическая выплата производится по акту и чеку самозанятого. Начисления — ежемесячно.
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="faq-item">
-            <h4>Как рассчитывается вознаграждение?</h4>
-            <p>Вознаграждение — процент от суммы сделки, который закреплён в договоре.</p>
+    </section>
+
+    <!-- Plans section -->
+    <section id="plans" class="plans">
+        <div class="container">
+            <h2 class="plans-title">Вознаграждение и условия</h2>
+            <p class="plans-subtitle">Выбирайте формат, который подходит вам. Можно начать с фика и перейти на процент.</p>
+            <div class="plans-grid">
+                <div class="card plan-card">
+                    <div class="plan-header">
+                        <h3 class="plan-title">Старт</h3>
+                        <span class="badge">Новичкам</span>
+                    </div>
+                    <div class="card-content">
+                        <div class="plan-price">5%</div>
+                        <ul class="plan-features">
+                            <li class="plan-feature"><i class="fa-regular fa-circle-check"></i> Фикс 5% от сделки</li>
+                            <li class="plan-feature"><i class="fa-regular fa-circle-check"></i> Выплата раз в месяц</li>
+                            <li class="plan-feature"><i class="fa-regular fa-circle-check"></i> Акт + чек</li>
+                        </ul>
+                        <a href="#" class="btn btn-primary" style="width: 100%; border-radius: 1rem;">Выбрать</a>
+                    </div>
+                </div>
+                <div class="card plan-card featured">
+                    <div class="plan-header">
+                        <h3 class="plan-title">Про</h3>
+                        <span class="badge">Оптимально</span>
+                    </div>
+                    <div class="card-content">
+                        <div class="plan-price">7%</div>
+                        <ul class="plan-features">
+                            <li class="plan-feature"><i class="fa-regular fa-circle-check"></i> 7% от базы (без НДС)</li>
+                            <li class="plan-feature"><i class="fa-regular fa-circle-check"></i> Бонус за объём</li>
+                            <li class="plan-feature"><i class="fa-regular fa-circle-check"></i> Приоритетная поддержка</li>
+                        </ul>
+                        <a href="#" class="btn btn-primary" style="width: 100%; border-radius: 1rem;">Выбрать</a>
+                    </div>
+                </div>
+                <div class="card plan-card">
+                    <div class="plan-header">
+                        <h3 class="plan-title">Премиум</h3>
+                    </div>
+                    <div class="card-content">
+                        <div class="plan-price">10%</div>
+                        <ul class="plan-features">
+                            <li class="plan-feature"><i class="fa-regular fa-circle-check"></i> 10% при обороте от 3 млн/мес</li>
+                            <li class="plan-feature"><i class="fa-regular fa-circle-check"></i> Индивидуальные условия</li>
+                            <li class="plan-feature"><i class="fa-regular fa-circle-check"></i> Отдельный менеджер</li>
+                        </ul>
+                        <a href="#" class="btn btn-primary" style="width: 100%; border-radius: 1rem;">Выбрать</a>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<section id="signup">
-    <h2>Присоединяйся</h2>
-    <p style="text-align:center;font-size:18px;">Оставь свои контакты и рассчитай свой доход прямо сейчас.</p>
-    <form onsubmit="alert('Спасибо! Мы свяжемся с вами.'); return false;" style="max-width:600px;margin:0 auto;">
-        <input type="text" placeholder="Имя" required>
-        <input type="email" placeholder="Email" required>
-        <input type="tel" placeholder="Телефон" required>
-        <input type="number" id="dealAmount" placeholder="Сумма сделки в рублях" required>
-        <select id="percent">
-            <option value="5">5%</option>
-            <option value="7">7%</option>
-            <option value="10">10%</option>
-        </select>
-        <div class="reward" id="rewardDisplay">Ваше вознаграждение: 0 руб.</div>
-        <button type="submit">Отправить</button>
-    </form>
-</section>
+    <!-- Legal section -->
+    <section id="legal" class="legal">
+        <div class="container legal-grid">
+            <div>
+                <h2 class="legal-title"><i class="fa-solid fa-shield-check"></i> Юридическая чистота</h2>
+                <p class="text-slate-600">Мы работаем «в белую»: агентский договор, акт оказанных услуг, чек самозанятого в приложении «Мой налог». Вознаграждение — маркетинговые услуги/агентские, выплаты только за результат.</p>
+                <ul class="legal-list">
+                    <li class="legal-item"><i class="fa-regular fa-file-lines"></i> Договор оферты или индивидуальный агентский договор</li>
+                    <li class="legal-item"><i class="fa-regular fa-file-lines"></i> Ежемесячные акты и отчёты</li>
+                    <li class="legal-item"><i class="fa-regular fa-file-lines"></i> Чеки НПД (самозанятый 4–6%)</li>
+                </ul>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title"><i class="fa-solid fa-book-open"></i> Обоснование для проверок</h3>
+                </div>
+                <div class="card-content">
+                    <p class="text-slate-600 text-sm">Выплаты классифицируются как расходы на продвижение/маркетинг/агентские услуги. Публичная партнёрская программа подтверждает отсутствие «индивидуальных» условий и даёт прозрачный регламент начислений.</p>
+                    <p class="text-slate-600 text-sm mt-3">Участие добровольное, обязательств по объёму нет. Вознаграждение начисляется только при фактических поставках клиенту.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<section class="contact">
-    <h2>Контакты</h2>
-    <p>Телефон: +7 (___) ___-__-__</p>
-    <p>Email: <a href="mailto:info@company.ru">info@company.ru</a></p>
-    <p>Сайт: <a href="https://www.company.ru" target="_blank">www.company.ru</a></p>
-</section>
+    <!-- FAQ section -->
+    <section id="faq" class="faq">
+        <div class="container">
+            <h2 class="faq-title">Частые вопросы</h2>
+            <div class="faq-grid">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="faq-question">Нужно ли быть самозанятым?</h3>
+                    </div>
+                    <div class="card-content">
+                        <p class="faq-answer">Да, это самый простой и официальный способ получать вознаграждение. Регистрация занимает 2 минуты в приложении 'Мой налог'.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="faq-question">С какой суммы платите процент?</h3>
+                    </div>
+                    <div class="card-content">
+                        <p class="faq-answer">База расчёта — сумма сделки без НДС. Выплаты производятся ежемесячно по акту и чеку.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="faq-question">Что с конфликтом интересов?</h3>
+                    </div>
+                    <div class="card-content">
+                        <p class="faq-answer">Мы строим публичную партнёрскую схему. При необходимости вознаграждение может получать не сотрудник клиента, а иной участник (родственник/внешний партнёр), действующий как самозанятый.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="faq-question">Можно ли начать с одной рекомендации?</h3>
+                    </div>
+                    <div class="card-content">
+                        <p class="faq-answer">Да. Нет минимальных требований по объёму.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<script>
-    // Авторасчёт вознаграждения
-    const dealAmount = document.getElementById('dealAmount');
-    const percent = document.getElementById('percent');
-    const rewardDisplay = document.getElementById('rewardDisplay');
+    <!-- CTA section -->
+    <section id="contact" class="cta">
+        <div class="container">
+            <div class="card">
+                <div class="cta-grid">
+                    <div>
+                        <h3 class="cta-title">Готовы начать?</h3>
+                        <p class="text-slate-600">Оставьте контакты — пришлём договор и добавим в партнёрскую программу.</p>
+                        <ul class="cta-list">
+                            <li class="cta-item"><i class="fa-regular fa-circle-check"></i> Подключение за 1 день</li>
+                            <li class="cta-item"><i class="fa-regular fa-circle-check"></i> Персональный менеджер</li>
+                            <li class="cta-item"><i class="fa-regular fa-circle-check"></i> Помощь с регистрацией самозанятости</li>
+                        </ul>
+                    </div>
+                    <div class="cta-form">
+                        <div class="form-group">
+                            <label for="name" class="label">Имя</label>
+                            <input id="name" type="text" class="input" placeholder="Ваше имя">
+                        </div>
+                        <div class="form-group">
+                            <label for="email" class="label">Email</label>
+                            <input id="email" type="email" class="input" placeholder="example@mail.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="message" class="label">Сообщение (необязательно)</label>
+                            <textarea id="message" class="textarea" placeholder="Расскажите о себе или задайте вопрос"></textarea>
+                        </div>
+                        <button class="btn btn-primary">Отправить заявку</button>
+                        <div class="cta-contacts">
+                            <i class="fa-solid fa-envelope"></i>
+                            <span>Или напишите на почту: </span>
+                            <a href="mailto:partners@example.com">partners@example.com</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    function calculateReward() {
-        const amount = parseFloat(dealAmount.value) || 0;
-        const perc = parseFloat(percent.value) || 0;
-        const reward = (amount * perc / 100).toFixed(2);
-        rewardDisplay.textContent = `Ваше вознаграждение: ${reward} руб.`;
-    }
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-content">
+            <div class="footer-brand">
+                <i class="fa-regular fa-handshake"></i>
+                Партнёрская программа
+            </div>
+            <div class="footer-links">
+                <a href="#">Политика конфиденциальности</a>
+                <a href="#">Договор оферты</a>
+                <a href="#">Контакты</a>
+            </div>
+        </div>
+    </footer>
 
-    dealAmount.addEventListener('input', calculateReward);
-    percent.addEventListener('change', calculateReward);
+    <script>
+        // Calculator functionality
+        const amountInput = document.getElementById('amount');
+        const vatCheckbox = document.getElementById('vat');
+        const percentInput = document.getElementById('percent');
+        const baseAmountEl = document.getElementById('base-amount');
+        const netAmountEl = document.getElementById('net-amount');
+        const rewardAmountEl = document.getElementById('reward-amount');
 
-    // FAQ раскрытие
-    document.querySelectorAll('.faq-item h4').forEach(h => {
-        h.addEventListener('click', () => {
-            const p = h.nextElementSibling;
-            p.style.display = p.style.display === 'block' ? 'none' : 'block';
-        });
-    });
-</script>
+        function formatCurrency(amount) {
+            return new Intl.NumberFormat('ru-RU', { style: 'currency', currency: 'RUB' }).format(amount);
+        }
 
+        function calculateCommission() {
+            let amount = parseFloat(amountInput.value) || 0;
+            const percent = parseFloat(percentInput.value) || 0;
+            const isWithVAT = vatCheckbox.checked;
+            
+            let baseAmount = amount;
+            let netAmount = isWithVAT ? amount / 1.2 : amount;
+            let reward = netAmount * percent / 100;
+            
+            baseAmountEl.textContent = formatCurrency(baseAmount);
+            netAmountEl.textContent = formatCurrency(netAmount);
+            rewardAmountEl.textContent = formatCurrency(reward);
+        }
+
+        // Event listeners for calculator
+        amountInput.addEventListener('input', calculateCommission);
+        vatCheckbox.addEventListener('change', calculateCommission);
+        percentInput.addEventListener('input', calculateCommission);
+
+        // Initialize calculator
+        calculateCommission();
+
+        // Fade-in animation on scroll
+        const fadeElements = document.querySelectorAll('.fade-in');
+        
+        function checkFade() {
+            fadeElements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementBottom = element.getBoundingClientRect().bottom;
+                const isVisible = (elementTop < window.innerHeight - 50) && (elementBottom > 0);
+                
+                if (isVisible) {
+                    element.classList.add('visible');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', checkFade);
+        window.addEventListener('load', checkFade);
+    </script>
 </body>
 </html>
