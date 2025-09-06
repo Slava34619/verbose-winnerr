@@ -3,720 +3,792 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Партнёрская программа</title>
-    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
-    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
-    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com/framer-motion/dist/framer-motion.js"></script>
-    <script src="https://unpkg.com/lucide-react"></script>
+    <title>Партнёрская программа — Официальные вознаграждения</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" xintegrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ96jI0+y5F+oGj3L8hI/I/o5fT5J1r2hL6N0e+C8w+D5s+E5q5w5f5F5w5F5w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
-        body { 
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            background: linear-gradient(to bottom, #f8fafc, #ffffff, #f8fafc);
-            color: #1e293b;
+        :root {
+            --slate-50: #f8fafc;
+            --slate-100: #f1f5f9;
+            --slate-200: #e2e8f0;
+            --slate-400: #94a3b8;
+            --slate-500: #64748b;
+            --slate-600: #475569;
+            --slate-700: #334155;
+            --slate-800: #1e293b;
+            --slate-900: #0f172a;
+            --yellow-400: #facc15;
+            --green-500: #22c55e;
+            --blue-600: #2563eb;
+            --white: #ffffff;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
+            color: var(--slate-900);
+            background-color: var(--slate-50);
+        }
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        @media (min-width: 768px) {
+            .container {
+                padding: 0 2rem;
+            }
+        }
+        .section { padding: 4rem 0; }
+        .grid { display: grid; }
+        .flex { display: flex; }
+        .flex-wrap { flex-wrap: wrap; }
+        .items-center { align-items: center; }
+        .justify-center { justify-content: center; }
+        .justify-between { justify-content: space-between; }
+        .gap-2 { gap: 0.5rem; }
+        .gap-3 { gap: 0.75rem; }
+        .gap-4 { gap: 1rem; }
+        .gap-6 { gap: 1.5rem; }
+        .gap-8 { gap: 2rem; }
+        .gap-10 { gap: 2.5rem; }
+        .space-y-2 > * + * { margin-top: 0.5rem; }
+        .space-y-3 > * + * { margin-top: 0.75rem; }
+        .bg-gradient-b { background-image: linear-gradient(to bottom, var(--slate-50), var(--white), var(--slate-50)); }
+        .sticky { position: sticky; top: 0; z-index: 50; }
+        .backdrop-blur { backdrop-filter: blur(8px); }
+        .shadow-sm { box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05); }
+        .shadow-md { box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1); }
+        .shadow-lg { box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1); }
+        .shadow-xl { box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1); }
+        .rounded-2xl { border-radius: 1rem; }
+        .border { border: 1px solid var(--slate-200); }
+        .border-t { border-top: 1px solid var(--slate-200); }
+        .bg-white { background-color: var(--white); }
+        .bg-slate-50 { background-color: var(--slate-50); }
+        .bg-slate-100 { background-color: var(--slate-100); }
+        .bg-white-90 { background-color: rgba(255, 255, 255, 0.9); }
+        .bg-white-70 { background-color: rgba(255, 255, 255, 0.7); }
+        .text-sm { font-size: 0.875rem; }
+        .text-base { font-size: 1rem; }
+        .text-lg { font-size: 1.125rem; }
+        .text-xl { font-size: 1.25rem; }
+        .text-2xl { font-size: 1.5rem; }
+        .text-3xl { font-size: 1.875rem; }
+        .text-4xl { font-size: 2.25rem; }
+        .text-5xl { font-size: 3rem; }
+        .font-semibold { font-weight: 600; }
+        .font-bold { font-weight: 700; }
+        .font-extrabold { font-weight: 800; }
+        .text-slate-900 { color: var(--slate-900); }
+        .text-slate-700 { color: var(--slate-700); }
+        .text-slate-600 { color: var(--slate-600); }
+        .text-slate-500 { color: var(--slate-500); }
+        .text-slate-400 { color: var(--slate-400); }
+        .text-green-500 { color: var(--green-500); }
+        .text-blue-600 { color: var(--blue-600); }
+        .text-yellow-400 { color: var(--yellow-400); }
+        .fill-yellow-400 { fill: var(--yellow-400); }
+        .p-5 { padding: 1.25rem; }
+        .py-16 { padding-top: 4rem; padding-bottom: 4rem; }
+        .py-24 { padding-top: 6rem; padding-bottom: 6rem; }
+        .py-8 { padding-top: 2rem; padding-bottom: 2rem; }
+        .py-12 { padding-top: 3rem; padding-bottom: 3rem; }
+        .py-14 { padding-top: 3.5rem; padding-bottom: 3.5rem; }
+        .my-4 { margin-top: 1rem; margin-bottom: 1rem; }
+        .mt-2 { margin-top: 0.5rem; }
+        .mt-4 { margin-top: 1rem; }
+        .mt-6 { margin-top: 1.5rem; }
+        .mb-2 { margin-bottom: 0.5rem; }
+        .mb-4 { margin-bottom: 1rem; }
+        .mb-6 { margin-bottom: 1.5rem; }
+        .mb-12 { margin-bottom: 3rem; }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 0.5rem;
+            padding: 0.5rem 1rem;
+            font-weight: 500;
+            transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, box-shadow;
+            transition-duration: 0.2s;
+            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+        }
+        .btn-primary {
+            background-color: var(--slate-900);
+            color: var(--white);
+            border: 1px solid var(--slate-900);
+        }
+        .btn-primary:hover { background-color: var(--slate-700); }
+        .btn-outline {
+            background-color: transparent;
+            color: var(--slate-900);
+            border: 1px solid var(--slate-200);
+        }
+        .btn-outline:hover { background-color: var(--slate-100); }
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            font-size: 0.75rem;
+            font-weight: 500;
+            padding: 0.25rem 0.5rem;
+            border-radius: 9999px;
+            background-color: var(--slate-100);
+            color: var(--slate-500);
+        }
+        .card {
+            background-color: var(--white);
+            border: 1px solid var(--slate-200);
+            border-radius: 1rem;
+        }
+        .card-header { padding: 1.5rem 1.5rem 0; }
+        .card-content { padding: 1.5rem; }
+        .ring-2 { box-shadow: 0 0 0 2px var(--slate-900); }
+        .input {
+            display: flex;
+            height: 2.5rem;
+            width: 100%;
+            border: 1px solid var(--slate-200);
+            background-color: var(--white);
+            padding: 0 0.75rem;
+            font-size: 0.875rem;
+            border-radius: 0.5rem;
+        }
+        .textarea {
+            display: flex;
+            min-height: 5rem;
+            width: 100%;
+            border: 1px solid var(--slate-200);
+            background-color: var(--white);
+            padding: 0.5rem 0.75rem;
+            font-size: 0.875rem;
+            border-radius: 0.5rem;
+        }
+        .loader {
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        /* Responsive Styles */
+        @media (min-width: 768px) {
+            .md-grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+            .md-grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+            .md-grid-cols-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+            .md-flex-row { flex-direction: row; }
+            .md-py-24 { padding-top: 6rem; padding-bottom: 6rem; }
+            .md-text-5xl { font-size: 3rem; }
+            .md-pl-10 { padding-left: 2.5rem; }
+            .md-hidden { display: none; }
+            .md-inline-flex { display: inline-flex; }
         }
     </style>
 </head>
-<body>
-    <div id="root"></div>
-    
-    <script type="text/babel">
-        // Ваш весь JavaScript код скопируйте сюда
-		import React, { useMemo, useState, useRef } from "react";
-import { motion } from "framer-motion";
-import {
-  Handshake,
-  Percent,
-  ShieldCheck,
-  FileText,
-  Calculator,
-  LineChart,
-  Users,
-  ArrowRight,
-  CheckCircle2,
-  CircleDollarSign,
-  HeartHandshake,
-  Building2,
-  BookOpen,
-  Mail,
-  Phone,
-  Menu,
-  X,
-  Info,
-  Star,
-  Download,
-  Loader2
-} from "lucide-react";
+<body class="bg-gradient-b">
 
-// shadcn/ui components (available in this environment)
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { Badge } from "@/components/ui/badge";
-import { Textarea } from "@/components/ui/textarea";
-import { Switch } from "@/components/ui/switch";
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from "@/components/ui/tooltip";
-
-// ---- Utility ----
-const currency = (n) => new Intl.NumberFormat("ru-RU", { style: "currency", currency: "RUB", maximumFractionDigits: 0 }).format(Number.isFinite(n) ? n : 0);
-
-// Smooth scroll function
-const smoothScrollTo = (elementId) => {
-  const element = document.getElementById(elementId);
-  if (element) {
-    element.scrollIntoView({ behavior: 'smooth' });
-  }
-};
-
-// ---- Page ----
-export default function PartnerLanding() {
-  return (
-    <div className="min-h-screen bg-gradient-to-b from-slate-50 via-white to-slate-50 text-slate-900">
-      <NavBar />
-      <Hero />
-      <Logos />
-      <Stats />
-      <HowItWorks />
-      <CommissionCalculator />
-      <Plans />
-      <Testimonials />
-      <LegalBlock />
-      <FAQ />
-      <CTA />
-      <Footer />
-    </div>
-  );
-}
-
-// ---- Components ----
-function NavBar() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
-  const navItems = [
-    { href: "how", label: "Как это работает" },
-    { href: "calc", label: "Калькулятор" },
-    { href: "plans", label: "Вознаграждения" },
-    { href: "testimonials", label: "Отзывы" },
-    { href: "legal", label: "Юр.чистота" },
-    { href: "faq", label: "FAQ" },
-  ];
-
-  const handleNavClick = (href) => {
-    smoothScrollTo(href);
-    setMobileMenuOpen(false);
-  };
-
-  return (
-    <div className="sticky top-0 z-50 backdrop-blur bg-white/70 border-b">
-      <div className="container mx-auto px-4 py-3 flex items-center justify-between">
-        <div className="flex items-center gap-2 font-semibold">
-          <HeartHandshake className="h-6 w-6" />
-          Партнёрская программа
-          <Badge variant="secondary" className="ml-2">официально</Badge>
-        </div>
-        
-        {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center gap-6 text-sm text-slate-600">
-          {navItems.map((item) => (
-            <button
-              key={item.href}
-              onClick={() => handleNavClick(item.href)}
-              className="hover:text-slate-900 transition-colors"
-            >
-              {item.label}
-            </button>
-          ))}
-        </div>
-
-        <div className="flex items-center gap-3">
-          <Button variant="ghost" className="hidden md:inline-flex" onClick={() => handleNavClick("contact")}>
-            Связаться
-          </Button>
-          <Button className="rounded-2xl" onClick={() => handleNavClick("contact")}>
-            Стать партнёром
-          </Button>
-
-          {/* Mobile Menu Button */}
-          <Button
-            variant="ghost"
-            size="icon"
-            className="md:hidden"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          >
-            {mobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-          </Button>
-        </div>
-      </div>
-
-      {/* Mobile Menu */}
-      {mobileMenuOpen && (
-        <motion.div
-          initial={{ opacity: 0, height: 0 }}
-          animate={{ opacity: 1, height: "auto" }}
-          exit={{ opacity: 0, height: 0 }}
-          className="md:hidden bg-white border-t"
-        >
-          <div className="container mx-auto px-4 py-4 flex flex-col gap-3">
-            {navItems.map((item) => (
-              <button
-                key={item.href}
-                onClick={() => handleNavClick(item.href)}
-                className="py-2 text-left hover:text-slate-900 transition-colors"
-              >
-                {item.label}
-              </button>
-            ))}
-            <Button variant="outline" className="mt-2" onClick={() => handleNavClick("contact")}>
-              Связаться
-            </Button>
-          </div>
-        </motion.div>
-      )}
-    </div>
-  );
-}
-
-function Hero() {
-  return (
-    <section id="hero" className="container mx-auto px-4 py-16 md:py-24">
-      <div className="grid md:grid-cols-2 gap-10 items-center">
-        <div>
-          <motion.h1
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-4xl md:text-5xl font-extrabold leading-tight tracking-tight"
-          >
-            Зарабатывайте <span className="text-slate-700">официально</span> на рекомендациях
-          </motion.h1>
-          <p className="mt-4 text-lg text-slate-600">
-            Приводите компании на закупки — получайте вознаграждение как самозанятый. Никаких «серых схем»: договор, чек «Мой налог», прозрачные выплаты.
-          </p>
-          <div className="mt-6 flex flex-col sm:flex-row gap-3">
-            <Button size="lg" className="rounded-2xl" onClick={() => smoothScrollTo("contact")}>
-              Присоединиться <ArrowRight className="ml-2 h-4 w-4" />
-            </Button>
-            <Button size="lg" variant="outline" className="rounded-2xl" onClick={() => smoothScrollTo("how")}>
-              Как это работает
-            </Button>
-          </div>
-          <div className="mt-6 flex items-center gap-6 text-sm text-slate-500">
-            <div className="flex items-center gap-2"><ShieldCheck className="h-4 w-4"/> Законно</div>
-            <div className="flex items-center gap-2"><LineChart className="h-4 w-4"/> Прозрачно</div>
-            <div className="flex items-center gap-2"><CircleDollarSign className="h-4 w-4"/> Выгодно</div>
-          </div>
-        </div>
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.1 }}
-          className="md:pl-10"
-        >
-          <Card className="shadow-xl border-slate-200">
-            <CardHeader>
-              <CardTitle className="flex items-center gap-2"><Handshake className="h-5 w-5"/> Прозрачная схема</CardTitle>
-            </CardHeader>
-            <CardContent className="grid gap-4 text-sm">
-              <Step num={1} icon={<Users className="h-4 w-4"/>} title="Регистрируйтесь как самозанятый" desc="2 минуты в приложении 'Мой налог'."/>
-              <Step num={2} icon={<Building2 className="h-4 w-4"/>} title="Рекомендуйте наш товар" desc="Коммуницируйте с закупщиками/компаниями, передавайте лиды."/>
-              <Step num={3} icon={<FileText className="h-4 w-4"/>} title="Оформляем сделку" desc="Мы заключаем договор с клиентом и поставляем товар."/>
-              <Step num={4} icon={<Percent className="h-4 w-4"/>} title="Получаете процент" desc="Присылаете акт и чек — переводим вознаграждение на карту."/>
-            </CardContent>
-          </Card>
-        </motion.div>
-      </div>
-    </section>
-  );
-}
-
-function Step({ num, title, desc, icon }) {
-  return (
-    <div className="flex gap-3">
-      <div className="flex-none">
-        <div className="h-8 w-8 rounded-full bg-slate-100 flex items-center justify-center font-semibold">{num}</div>
-      </div>
-      <div className="grow">
-        <div className="flex items-center gap-2 font-medium">{icon} {title}</div>
-        <div className="text-slate-500">{desc}</div>
-      </div>
-    </div>
-  );
-}
-
-function Logos() {
-  return (
-    <section className="container mx-auto px-4 pb-10 -mt-6">
-      <div className="rounded-2xl border bg-white p-5 md:p-6 flex items-center justify-between gap-6 overflow-x-auto">
-        {[
-          "Чеки 'Мой налог'",
-          "Акты оказанных услуг",
-          "Агентский договор",
-          "Учёт лидов",
-          "Ежемесячные выплаты"
-        ].map((t, i) => (
-          <div key={i} className="text-slate-500 text-sm whitespace-nowrap">{t}</div>
-        ))}
-      </div>
-    </section>
-  );
-}
-
-function Stats() {
-  const stats = [
-    { label: "Средний % партнёра", value: "7–10%" },
-    { label: "Выплаты", value: "ежемесячно" },
-    { label: "Налоги", value: "самозанятый 4–6%" },
-    { label: "Подключение", value: "за 1 день" },
-  ];
-  return (
-    <section className="container mx-auto px-4 py-8">
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-        {stats.map((s, i) => (
-          <Card key={i} className="border-slate-200">
-            <CardContent className="p-5">
-              <div className="text-2xl font-bold">{s.value}</div>
-              <div className="text-slate-500 text-sm">{s.label}</div>
-            </CardContent>
-          </Card>
-        ))}
-      </div>
-    </section>
-  );
-}
-
-function HowItWorks() {
-  return (
-    <section id="how" className="container mx-auto px-4 py-14">
-      <div className="grid md:grid-cols-3 gap-6">
-        {[ 
-          {icon: <Handshake className="h-5 w-5"/>, title: "Публичная партнёрка", desc: "Любой самозанятый может участвовать, нет 'закулисья'."},
-          {icon: <ShieldCheck className="h-5 w-5"/>, title: "Юридически чисто", desc: "Договор + акт + чек. Расходы для ИП, доход для партнёра."},
-          {icon: <LineChart className="h-5 w-5"/>, title: "Платим за результат", desc: "Вознаграждение только за состоявшиеся сделки."}
-        ].map((b, i) => (
-          <Card key={i} className="border-slate-200">
-            <CardHeader>
-              <CardTitle className="flex items-center gap-2 text-base font-semibold">{b.icon}{b.title}</CardTitle>
-            </CardHeader>
-            <CardContent className="text-slate-600">{b.desc}</CardContent>
-          </Card>
-        ))}
-      </div>
-    </section>
-  );
-}
-
-function CommissionCalculator() {
-  const [amount, setAmount] = useState(100000);
-  const [percent, setPercent] = useState(7);
-  const [includeVAT, setIncludeVAT] = useState(false);
-
-  const result = useMemo(() => {
-    const base = Number(amount) || 0;
-    const pct = (Number(percent) || 0) / 100;
-    const net = includeVAT ? Math.round(base / 1.2) : base; // если сумма с НДС — снимаем НДС 20%
-    const reward = Math.round(net * pct);
-    return { base, net, reward };
-  }, [amount, percent, includeVAT]);
-
-  return (
-    <section id="calc" className="container mx-auto px-4 py-16">
-      <div className="grid md:grid-cols-2 gap-8 items-start">
-        <div>
-          <h2 className="text-2xl md:text-3xl font-bold flex items-center gap-2"><Calculator className="h-6 w-6"/> Калькулятор вознаграждения</h2>
-          <p className="mt-2 text-slate-600">Посчитайте, сколько вы заработаете с каждой сделки. Мы считаем от суммы <span className="font-medium">без НДС</span>.</p>
-
-          <div className="mt-6 grid gap-5">
-            <div className="grid gap-2">
-              <Label htmlFor="amount">Сумма сделки</Label>
-              <Input id="amount" type="number" min="0" value={amount} onChange={(e) => setAmount(e.target.value)} />
-              <div className="flex items-center gap-2 text-xs text-slate-500">
-                <Switch id="vat" checked={includeVAT} onCheckedChange={setIncludeVAT} />
-                <Label htmlFor="vat" className="cursor-pointer">Указать сумму <span className="font-medium">с НДС 20%</span></Label>
-                <TooltipProvider>
-                  <Tooltip>
-                    <TooltipTrigger>
-                      <Info className="h-3.5 w-3.5" />
-                    </TooltipTrigger>
-                    <TooltipContent className="max-w-xs">
-                      <p className="text-xs">Мы являемся плательщиком НДС. Вознаграждение начисляется на стоимость услуг/товаров без учёта налога, так как НДС — это обязательный платеж в бюджет.</p>
-                    </TooltipContent>
-                  </Tooltip>
-                </TooltipProvider>
-              </div>
+    <!-- Навигация -->
+    <header class="sticky-header">
+        <nav class="container flex items-center justify-between py-3">
+            <div class="flex items-center gap-2 font-semibold text-xl">
+                <i class="fa-solid fa-handshake-heart"></i>
+                Партнёрка
+                <span class="badge">официально</span>
             </div>
-            <div className="grid gap-2">
-              <Label htmlFor="percent">Процент партнёра, %</Label>
-              <div className="flex items-center gap-2">
-                <Input id="percent" type="number" min="0" max="100" value={percent} onChange={(e) => setPercent(e.target.value)} />
-                <div className="w-full max-w-48">
-                  <input
-                    type="range"
-                    min="0"
-                    max="20"
-                    value={percent}
-                    onChange={(e) => setPercent(e.target.value)}
-                    className="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer"
-                  />
+            
+            <div class="hidden-on-mobile flex items-center gap-6 text-sm text-slate-600">
+                <a href="#how" class="hover:text-slate-900 transition-colors">Как это работает</a>
+                <a href="#calc" class="hover:text-slate-900 transition-colors">Калькулятор</a>
+                <a href="#plans" class="hover:text-slate-900 transition-colors">Вознаграждения</a>
+                <a href="#testimonials" class="hover:text-slate-900 transition-colors">Отзывы</a>
+                <a href="#legal" class="hover:text-slate-900 transition-colors">Юр.чистота</a>
+                <a href="#faq" class="hover:text-slate-900 transition-colors">FAQ</a>
+            </div>
+
+            <div class="flex items-center gap-3">
+                <a href="#contact" class="btn btn-outline hidden-on-mobile">Связаться</a>
+                <a href="#contact" class="btn btn-primary rounded-2xl shadow-md">Стать партнёром</a>
+                <button id="mobile-menu-btn" class="menu-btn hidden-on-desktop">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </nav>
+        <div id="mobile-menu" class="mobile-menu hidden">
+            <div class="container py-4 flex flex-col gap-3">
+                <a href="#how" class="py-2 text-left hover:text-slate-900">Как это работает</a>
+                <a href="#calc" class="py-2 text-left hover:text-slate-900">Калькулятор</a>
+                <a href="#plans" class="py-2 text-left hover:text-slate-900">Вознаграждения</a>
+                <a href="#testimonials" class="py-2 text-left hover:text-slate-900">Отзывы</a>
+                <a href="#legal" class="py-2 text-left hover:text-slate-900">Юр.чистота</a>
+                <a href="#faq" class="py-2 text-left hover:text-slate-900">FAQ</a>
+                <a href="#contact" class="btn btn-outline mt-2">Связаться</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero" class="container section py-16 md-py-24">
+        <div class="grid gap-10 items-center md-grid-cols-2">
+            <div>
+                <h1 class="text-4xl font-extrabold leading-tight tracking-tight md-text-5xl">
+                    Зарабатывайте <span style="color: var(--slate-700);">официально</span> на рекомендациях
+                </h1>
+                <p class="mt-4 text-lg text-slate-600">
+                    Приводите компании на закупки — получайте вознаграждение как самозанятый. Никаких «серых схем»: договор, чек «Мой налог», прозрачные выплаты.
+                </p>
+                <div class="mt-6 flex flex-col sm-flex-row gap-3">
+                    <a href="#contact" class="btn btn-primary text-lg">
+                        Присоединиться <i class="fa-solid fa-arrow-right ml-2"></i>
+                    </a>
+                    <a href="#how" class="btn btn-outline text-lg">
+                        Как это работает
+                    </a>
                 </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4 }}>
-          <Card className="border-slate-200 shadow-lg">
-            <CardHeader>
-              <CardTitle className="text-lg">Итоги расчёта</CardTitle>
-            </CardHeader>
-            <CardContent className="grid gap-3 text-sm">
-              <Row label="Сумма сделки (ввод)">{currency(result.base)}</Row>
-              <Row label="Сумма без НДС 20%">{currency(result.net)}</Row>
-              <Row label={`Вознаграждение (${percent}% от базы)`} strong>
-                {currency(result.reward)}
-              </Row>
-              <div className="pt-2 text-xs text-slate-500">
-                * Фактическая выплата производится по акту и чеку самозанятого. Начисления — ежемесячно.
-              </div>
-            </CardContent>
-          </Card>
-        </motion.div>
-      </div>
-    </section>
-  );
-}
-
-function Row({ label, children, strong }) {
-  return (
-    <div className="flex items-center justify-between">
-      <div className="text-slate-500">{label}</div>
-      <div className={strong ? "font-bold" : ""}>{children}</div>
-    </div>
-  );
-}
-
-function Plans() {
-  return (
-    <section id="plans" className="container mx-auto px-4 py-12">
-      <h2 className="text-2xl md:text-3xl font-bold">Вознаграждение и условия</h2>
-      <p className="mt-2 text-slate-600">Выбирайте формат, который подходит вам. Можно начать с фикса и перейти на процент.</p>
-      <div className="grid md:grid-cols-3 gap-6 mt-6">
-        <PlanCard title="Старт" badge="Новичкам" percent="5%" points={["Фикс 5% от сделки","Выплата раз в месяц","Акт + чек"]} />
-        <PlanCard title="Про" badge="Оптимально" featured percent="7%" points={["7% от базы (без НДС)","Бонус за объём","Приоритетная поддержка"]} />
-        <PlanCard title="Премиум" percent="10%" points={["10% при обороте от 3 млн/мес","Индивидуальные условия","Отдельный менеджер"]} />
-      </div>
-    </section>
-  );
-}
-
-function PlanCard({ title, percent, points, featured=false, badge }) {
-  return (
-    <Card className={`border-slate-200 ${featured ? "ring-2 ring-slate-900" : ""}`}>
-      <CardHeader>
-        <div className="flex items-center justify-between">
-          <CardTitle className="text-lg">{title}</CardTitle>
-          {badge && <Badge>{badge}</Badge>}
-        </div>
-      </CardHeader>
-      <CardContent>
-        <div className="text-3xl font-extrabold">{percent}</div>
-        <ul className="mt-4 space-y-2 text-sm text-slate-600">
-          {points.map((p, i) => (
-            <li key={i} className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4"/>{p}</li>
-          ))}
-        </ul>
-        <Button className="w-full mt-6 rounded-2xl" onClick={() => smoothScrollTo("contact")}>Выбрать</Button>
-      </CardContent>
-    </Card>
-  );
-}
-
-function Testimonials() {
-  const testimonials = [
-    {
-      name: "Алексей К.",
-      company: "Поставки оборудования",
-      text: "За последние 3 месяца получил 420 000 руб. вознаграждения. Всё официально, с чеками и без проблем с налоговой.",
-      amount: "2.4 млн руб.",
-      reward: "420 000 руб."
-    },
-    {
-      name: "Марина С.",
-      company: "IT-консалтинг",
-      text: "Рекомендую своим клиентам уже полгода. Процесс отлажен: лиды учитываются, выплаты вовремя. Отличная альтернатива 'серым' схемам.",
-      amount: "1.8 млн руб.",
-      reward: "126 000 руб."
-    },
-    {
-      name: "Дмитрий П.",
-      company: "Строительные материалы",
-      text: "Перешёл от неофициальных процентов к этой программе. Сплю спокойно, знаю что всё чисто. Поддержка всегда на связи.",
-      amount: "5.1 млн руб.",
-      reward: "357 000 руб."
-    }
-  ];
-
-  return (
-    <section id="testimonials" className="container mx-auto px-4 py-16 bg-slate-50 rounded-2xl">
-      <h2 className="text-2xl md:text-3xl font-bold text-center mb-12">Отзывы партнёров</h2>
-      <div className="grid md:grid-cols-3 gap-8">
-        {testimonials.map((testimonial, index) => (
-          <Card key={index} className="border-slate-200">
-            <CardContent className="p-6">
-              <div className="flex items-center mb-4">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="h-4 w-4 fill-yellow-400 text-yellow-400" />
-                ))}
-              </div>
-              <p className="text-slate-600 mb-4 italic">"{testimonial.text}"</p>
-              <div className="border-t pt-4">
-                <div className="font-semibold">{testimonial.name}</div>
-                <div className="text-sm text-slate-500">{testimonial.company}</div>
-                <div className="text-xs text-slate-400 mt-2">
-                  Оборот: {testimonial.amount} • Вознаграждение: {testimonial.reward}
+                <div class="mt-6 flex flex-wrap items-center gap-6 text-sm text-slate-500">
+                    <div class="flex items-center gap-2"><i class="fa-solid fa-shield-halved"></i> Законно</div>
+                    <div class="flex items-center gap-2"><i class="fa-solid fa-chart-line"></i> Прозрачно</div>
+                    <div class="flex items-center gap-2"><i class="fa-solid fa-sack-dollar"></i> Выгодно</div>
                 </div>
-              </div>
-            </CardContent>
-          </Card>
-        ))}
-      </div>
-    </section>
-  );
-}
-
-function LegalBlock() {
-  const documents = [
-    { name: "Договор-оферта", url: "/documents/offer.pdf" },
-    { name: "Партнёрское соглашение", url: "/documents/agreement.pdf" },
-    { name: "Политика конфиденциальности", url: "/documents/privacy.pdf" }
-  ];
-
-  return (
-    <section id="legal" className="container mx-auto px-4 py-16">
-      <div className="grid md:grid-cols-2 gap-8 items-start">
-        <div>
-          <h2 className="text-2xl md:text-3xl font-bold flex items-center gap-2"><ShieldCheck className="h-6 w-6"/> Юридическая чистота</h2>
-          <p className="mt-2 text-slate-600">Мы работаем «в белую»: агентский договор, акт оказанных услуг, чек самозанятого в приложении «Мой налог». Вознаграждение — маркетинговые услуги/агентские, выплаты только за результат.</p>
-          <ul className="mt-4 space-y-2 text-sm text-slate-600">
-            <li className="flex items-center gap-2"><FileText className="h-4 w-4"/> Договор оферты или индивидуальный агентский договор</li>
-            <li className="flex items-center gap-2"><FileText className="h-4 w-4"/> Ежемесячные акты и отчёты</li>
-            <li className="flex items-center gap-2"><FileText className="h-4 w-4"/> Чеки НПД (самозанятый 4–6%)</li>
-          </ul>
-
-          <div className="mt-6">
-            <h3 className="font-semibold mb-3">Документы для скачивания</h3>
-            <div className="space-y-2">
-              {documents.map((doc, index) => (
-                <a
-                  key={index}
-                  href={doc.url}
-                  download
-                  className="flex items-center gap-2 text-sm text-blue-600 hover:text-blue-800 transition-colors"
-                >
-                  <Download className="h-4 w-4" />
-                  {doc.name}
-                </a>
-              ))}
             </div>
-          </div>
+            <div class="md-pl-10">
+                <div class="card shadow-xl">
+                    <div class="card-header">
+                        <h2 class="flex items-center gap-2"><i class="fa-solid fa-handshake"></i> Прозрачная схема</h2>
+                    </div>
+                    <div class="card-content grid gap-4 text-sm">
+                        <div class="flex gap-3">
+                            <div class="flex items-center justify-center h-8 w-8 rounded-full bg-slate-100 font-semibold">1</div>
+                            <div>
+                                <div class="flex items-center gap-2 font-medium"><i class="fa-solid fa-users"></i> Регистрируйтесь как самозанятый</div>
+                                <div class="text-slate-500">2 минуты в приложении 'Мой налог'.</div>
+                            </div>
+                        </div>
+                        <div class="flex gap-3">
+                            <div class="flex items-center justify-center h-8 w-8 rounded-full bg-slate-100 font-semibold">2</div>
+                            <div>
+                                <div class="flex items-center gap-2 font-medium"><i class="fa-solid fa-building"></i> Рекомендуйте наш товар</div>
+                                <div class="text-slate-500">Коммуницируйте с закупщиками/компаниями, передавайте лиды.</div>
+                            </div>
+                        </div>
+                        <div class="flex gap-3">
+                            <div class="flex items-center justify-center h-8 w-8 rounded-full bg-slate-100 font-semibold">3</div>
+                            <div>
+                                <div class="flex items-center gap-2 font-medium"><i class="fa-solid fa-file-lines"></i> Оформляем сделку</div>
+                                <div class="text-slate-500">Мы заключаем договор с клиентом и поставляем товар.</div>
+                            </div>
+                        </div>
+                        <div class="flex gap-3">
+                            <div class="flex items-center justify-center h-8 w-8 rounded-full bg-slate-100 font-semibold">4</div>
+                            <div>
+                                <div class="flex items-center gap-2 font-medium"><i class="fa-solid fa-percent"></i> Получаете процент</div>
+                                <div class="text-slate-500">Присылаете акт и чек — переводим вознаграждение на карту.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <Card className="border-slate-200">
-          <CardHeader>
-            <CardTitle className="flex items-center gap-2"><BookOpen className="h-5 w-5"/> Обоснование для проверок</CardTitle>
-          </CardHeader>
-          <CardContent className="text-sm text-slate-600 space-y-3">
-            <p>Выплаты классифицируются как расходы на продвижение/маркетинг/агентские услуги. Публичная партнёрская программа подтверждает отсутствие «индивидуальных» условий и даёт прозрачный регламент начислений.</p>
-            <p>Участие добровольное, обязательств по объёму нет. Вознаграждение начисляется только при фактических поставках клиенту.</p>
-          </CardContent>
-        </Card>
-      </div>
     </section>
-  );
-}
 
-function FAQ() {
-  const items = [
-    {
-      q: "Нужно ли быть самозанятым?",
-      a: "Да, это самый простой и официальный способ получать вознаграждение. Регистрация занимает 2 минуты в приложении 'Мой налог'."
-    },
-    {
-      q: "С какой суммы платите процент?",
-      a: "База расчёта — сумма сделки без НДС. Выплаты производятся ежемесячно по акту и чеку."
-    },
-    {
-      q: "Что с конфликтом интересов?",
-      a: "Мы строим публичную партнёрскую схему. При необходимости вознаграждение может получать не сотрудник клиента, а иной участник (родственник/внешний партнёр), действующий как самозанятый."
-    },
-    {
-      q: "Можно ли начать с одной рекомендации?",
-      a: "Да. Нет минимальных требований по объёму."
-    }
-  ];
-  return (
-    <section id="faq" className="container mx-auto px-4 py-16">
-      <h2 className="text-2xl md:text-3xl font-bold mb-6">Частые вопросы</h2>
-      <div className="grid md:grid-cols-2 gap-6">
-        {items.map((it, i) => (
-          <Card key={i} className="border-slate-200">
-            <CardHeader>
-              <CardTitle className="text-base">{it.q}</CardTitle>
-            </CardHeader>
-            <CardContent className="text-slate-600 text-sm">{it.a}</CardContent>
-          </Card>
-        ))}
-      </div>
-    </section>
-  );
-}
-
-function CTA() {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    comment: ""
-  });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isSubmitted, setIsSubmitted] = useState(false);
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 2000));
-    
-    setIsSubmitting(false);
-    setIsSubmitted(true);
-    
-    // Reset form after 5 seconds
-    setTimeout(() => {
-      setIsSubmitted(false);
-      setFormData({ name: "", email: "", phone: "", comment: "" });
-    }, 5000);
-  };
-
-  const handleInputChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
-  };
-
-  if (isSubmitted) {
-    return (
-      <section id="contact" className="container mx-auto px-4 py-16">
-        <Card className="border-slate-200">
-          <CardContent className="p-10 text-center">
-            <CheckCircle2 className="h-16 w-16 text-green-500 mx-auto mb-4" />
-            <h3 className="text-2xl font-bold mb-2">Заявка отправлена!</h3>
-            <p className="text-slate-600">Мы свяжемся с вами в течение рабочего дня для обсуждения деталей сотрудничества.</p>
-          </CardContent>
-        </Card>
-      </section>
-    );
-  }
-
-  return (
-    <section id="contact" className="container mx-auto px-4 py-16">
-      <Card className="border-slate-200">
-        <CardContent className="p-6 md:p-10 grid md:grid-cols-2 gap-8 items-center">
-          <div>
-            <h3 className="text-2xl font-bold">Готовы начать?</h3>
-            <p className="mt-2 text-slate-600">Оставьте контакты — пришлём договор и добавим в партнёрскую программу.</p>
-            <ul className="mt-4 text-sm text-slate-600 space-y-2">
-              <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4"/> Подключение за 1 день</li>
-              <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4"/> Прозрачные начисления</li>
-              <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4"/> Поддержка в Telegram</li>
-            </ul>
-          </div>
-          <form className="grid gap-4" onSubmit={handleSubmit}>
-            <div className="grid gap-2">
-              <Label htmlFor="name">Имя</Label>
-              <Input
-                id="name"
-                name="name"
-                placeholder="Иван"
-                value={formData.name}
-                onChange={handleInputChange}
-                required
-              />
-            </div>
-            <div className="grid gap-2">
-              <Label htmlFor="email">Email</Label>
-              <Input
-                id="email"
-                name="email"
-                type="email"
-                placeholder="you@email.ru"
-                value={formData.email}
-                onChange={handleInputChange}
-                required
-              />
-            </div>
-            <div className="grid gap-2">
-              <Label htmlFor="phone">Телефон</Label>
-              <Input
-                id="phone"
-                name="phone"
-                type="tel"
-                placeholder="+7 (___) ___-__-__"
-                value={formData.phone}
-                onChange={handleInputChange}
-                required
-              />
-            </div>
-            <div className="grid gap-2">
-              <Label htmlFor="comment">Комментарий</Label>
-              <Textarea
-                id="comment"
-                name="comment"
-                placeholder="Компания, ниша, ориентировочные объёмы..."
-                value={formData.comment}
-                onChange={handleInputChange}
-              />
-            </div>
-            <Button type="submit" className="rounded-2xl" disabled={isSubmitting}>
-              {isSubmitting ? (
-                <>
-                  <Loader2 className="h-4 w-4 animate-spin mr-2" />
-                  Отправка...
-                </>
-              ) : (
-                "Отправить заявку"
-              )}
-            </Button>
-            <div className="flex items-center gap-2 text-xs text-slate-500 mt-1">
-              <Mail className="h-3.5 w-3.5"/> partner@yourbrand.ru
-              <Phone className="h-3.5 w-3.5 ml-3"/> +7 900 000-00-00
-            </div>
-          </form>
-        </CardContent>
-      </Card>
-    </section>
-  );
-}
-
-function Footer() {
-  return (
-    <footer className="border-t bg-white">
-      <div className="container mx-auto px-4 py-8 text-sm text-slate-500 flex flex-col md:flex-row gap-4 md:gap-8 items-center justify-between">
-        <div className="flex items-center gap-2"><HeartHandshake className="h-4 w-4"/> © {new Date().getFullYear()} Партнёрская программа</div>
-        <div className="flex items-center gap-4">
-          <button onClick={() => smoothScrollTo("legal")} className="hover:text-slate-900 transition-colors">Правовые документы</button>
-          <button onClick={() => smoothScrollTo("faq")} className="hover:text-slate-900 transition-colors">FAQ</button>
+    <!-- Logos Section -->
+    <section class="container pb-10">
+        <div class="card p-5 flex items-center justify-between gap-6 overflow-x-auto whitespace-nowrap">
+            <div class="text-slate-500 text-sm">Чеки 'Мой налог'</div>
+            <div class="text-slate-500 text-sm">Акты оказанных услуг</div>
+            <div class="text-slate-500 text-sm">Агентский договор</div>
+            <div class="text-slate-500 text-sm">Учёт лидов</div>
+            <div class="text-slate-500 text-sm">Ежемесячные выплаты</div>
         </div>
-      </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="container section py-8">
+        <div class="grid grid-cols-2 md-grid-cols-4 gap-4">
+            <div class="card">
+                <div class="card-content p-5">
+                    <div class="text-2xl font-bold">7–10%</div>
+                    <div class="text-slate-500 text-sm">Средний % партнёра</div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-content p-5">
+                    <div class="text-2xl font-bold">ежемесячно</div>
+                    <div class="text-slate-500 text-sm">Выплаты</div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-content p-5">
+                    <div class="text-2xl font-bold">4–6%</div>
+                    <div class="text-slate-500 text-sm">Налоги</div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-content p-5">
+                    <div class="text-2xl font-bold">за 1 день</div>
+                    <div class="text-slate-500 text-sm">Подключение</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section id="how" class="container section py-14">
+        <div class="grid md-grid-cols-3 gap-6">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="flex items-center gap-2 text-base font-semibold"><i class="fa-solid fa-handshake"></i> Публичная партнёрка</h3>
+                </div>
+                <div class="card-content text-slate-600">Любой самозанятый может участвовать, нет 'закулисья'.</div>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="flex items-center gap-2 text-base font-semibold"><i class="fa-solid fa-shield-halved"></i> Юридически чисто</h3>
+                </div>
+                <div class="card-content text-slate-600">Договор + акт + чек. Расходы для ИП, доход для партнёра.</div>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="flex items-center gap-2 text-base font-semibold"><i class="fa-solid fa-chart-line"></i> Платим за результат</h3>
+                </div>
+                <div class="card-content text-slate-600">Вознаграждение только за состоявшиеся сделки.</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Commission Calculator Section -->
+    <section id="calc" class="container section py-16">
+        <div class="grid md-grid-cols-2 gap-8 items-start">
+            <div>
+                <h2 class="text-2xl font-bold flex items-center gap-2"><i class="fa-solid fa-calculator"></i> Калькулятор вознаграждения</h2>
+                <p class="mt-2 text-slate-600">Посчитайте, сколько вы заработаете с каждой сделки. Мы считаем от суммы <span class="font-medium">без НДС</span>.</p>
+                <div class="mt-6 grid gap-5">
+                    <div class="grid gap-2">
+                        <label for="amount">Сумма сделки</label>
+                        <input id="amount" type="number" min="0" class="input" value="100000">
+                        <div class="flex items-center gap-2 text-xs text-slate-500">
+                            <div class="switch-container">
+                                <input type="checkbox" id="vat-switch" class="switch-input">
+                                <label for="vat-switch" class="switch-label"></label>
+                            </div>
+                            <label for="vat-switch">Указать сумму <span class="font-medium">с НДС 20%</span></label>
+                        </div>
+                    </div>
+                    <div class="grid gap-2">
+                        <label for="percent">Процент партнёра, %</label>
+                        <div class="flex items-center gap-2">
+                            <input id="percent" type="number" min="0" max="20" class="input" value="7">
+                            <div class="w-full" style="max-width: 12rem;">
+                                <input id="percent-range" type="range" min="0" max="20" value="7" class="slider-input">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="card shadow-lg">
+                    <div class="card-header">
+                        <h3 class="text-lg">Итоги расчёта</h3>
+                    </div>
+                    <div class="card-content grid gap-3 text-sm">
+                        <div class="flex items-center justify-between">
+                            <div class="text-slate-500">Сумма сделки (ввод)</div>
+                            <div id="result-base">100 000 ₽</div>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <div class="text-slate-500">Сумма без НДС 20%</div>
+                            <div id="result-net">83 333 ₽</div>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <div class="text-slate-500">Вознаграждение (7% от базы)</div>
+                            <div id="result-reward" class="font-bold">5 833 ₽</div>
+                        </div>
+                        <div class="pt-2 text-xs text-slate-500">
+                            * Фактическая выплата производится по акту и чеку самозанятого. Начисления — ежемесячно.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Plans Section -->
+    <section id="plans" class="container section py-12">
+        <h2 class="text-2xl font-bold">Вознаграждение и условия</h2>
+        <p class="mt-2 text-slate-600">Выбирайте формат, который подходит вам. Можно начать с фикса и перейти на процент.</p>
+        <div class="grid md-grid-cols-3 gap-6 mt-6">
+            <div class="card">
+                <div class="card-header flex items-center justify-between">
+                    <h3 class="text-lg">Старт</h3>
+                    <span class="badge">Новичкам</span>
+                </div>
+                <div class="card-content">
+                    <div class="text-3xl font-extrabold">5%</div>
+                    <ul class="mt-4 space-y-2 text-sm text-slate-600">
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check"></i> Фикс 5% от сделки</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check"></i> Выплата раз в месяц</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check"></i> Акт + чек</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-primary w-full mt-6">Выбрать</a>
+                </div>
+            </div>
+            <div class="card ring-2">
+                <div class="card-header flex items-center justify-between">
+                    <h3 class="text-lg">Про</h3>
+                    <span class="badge">Оптимально</span>
+                </div>
+                <div class="card-content">
+                    <div class="text-3xl font-extrabold">7%</div>
+                    <ul class="mt-4 space-y-2 text-sm text-slate-600">
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check"></i> 7% от базы (без НДС)</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check"></i> Бонус за объём</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check"></i> Приоритетная поддержка</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-primary w-full mt-6">Выбрать</a>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header flex items-center justify-between">
+                    <h3 class="text-lg">Премиум</h3>
+                    <span class="badge" style="visibility: hidden;">Новичкам</span>
+                </div>
+                <div class="card-content">
+                    <div class="text-3xl font-extrabold">10%</div>
+                    <ul class="mt-4 space-y-2 text-sm text-slate-600">
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check"></i> 10% при обороте от 3 млн/мес</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check"></i> Индивидуальные условия</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check"></i> Отдельный менеджер</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-primary w-full mt-6">Выбрать</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="container section py-16 bg-slate-50 rounded-2xl">
+        <h2 class="text-2xl font-bold text-center mb-12">Отзывы партнёров</h2>
+        <div class="carousel-container">
+            <div class="carousel-track">
+                <div class="carousel-item">
+                    <div class="card h-full flex flex-col">
+                        <div class="card-content p-6 flex-grow">
+                            <div class="flex items-center mb-4">
+                                <i class="fa-solid fa-star text-yellow-400"></i>
+                                <i class="fa-solid fa-star text-yellow-400"></i>
+                                <i class="fa-solid fa-star text-yellow-400"></i>
+                                <i class="fa-solid fa-star text-yellow-400"></i>
+                                <i class="fa-solid fa-star text-yellow-400"></i>
+                            </div>
+                            <p class="text-slate-600 mb-4 italic flex-grow">"За последние 3 месяца получил 420 000 руб. вознаграждения. Всё официально, с чеками и без проблем с налоговой."</p>
+                            <div class="border-t pt-4">
+                                <div class="font-semibold">Алексей К.</div>
+                                <div class="text-sm text-slate-500">Поставки оборудования</div>
+                                <div class="text-xs text-slate-400 mt-2">Оборот: 2.4 млн руб. • Вознаграждение: 420 000 руб.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="card h-full flex flex-col">
+                        <div class="card-content p-6 flex-grow">
+                            <div class="flex items-center mb-4">
+                                <i class="fa-solid fa-star text-yellow-400"></i>
+                                <i class="fa-solid fa-star text-yellow-400"></i>
+                                <i class="fa-solid fa-star text-yellow-400"></i>
+                                <i class="fa-solid fa-star text-yellow-400"></i>
+                                <i class="fa-solid fa-solid fa-star text-yellow-400"></i>
+                            </div>
+                            <p class="text-slate-600 mb-4 italic flex-grow">"Рекомендую своим клиентам уже полгода. Процесс отлажен: лиды учитываются, выплаты вовремя. Отличная альтернатива 'серым' схемам."</p>
+                            <div class="border-t pt-4">
+                                <div class="font-semibold">Марина С.</div>
+                                <div class="text-sm text-slate-500">IT-консалтинг</div>
+                                <div class="text-xs text-slate-400 mt-2">Оборот: 1.8 млн руб. • Вознаграждение: 126 000 руб.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="card h-full flex flex-col">
+                        <div class="card-content p-6 flex-grow">
+                            <div class="flex items-center mb-4">
+                                <i class="fa-solid fa-star text-yellow-400"></i>
+                                <i class="fa-solid fa-star text-yellow-400"></i>
+                                <i class="fa-solid fa-star text-yellow-400"></i>
+                                <i class="fa-solid fa-star text-yellow-400"></i>
+                                <i class="fa-solid fa-star text-yellow-400"></i>
+                            </div>
+                            <p class="text-slate-600 mb-4 italic flex-grow">"Перешёл от неофициальных процентов к этой программе. Сплю спокойно, знаю что всё чисто. Поддержка всегда на связи."</p>
+                            <div class="border-t pt-4">
+                                <div class="font-semibold">Дмитрий П.</div>
+                                <div class="text-sm text-slate-500">Строительные материалы</div>
+                                <div class="text-xs text-slate-400 mt-2">Оборот: 5.1 млн руб. • Вознаграждение: 357 000 руб.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-btn prev-btn">&lt;</button>
+            <button class="carousel-btn next-btn">&gt;</button>
+        </div>
+    </section>
+
+    <!-- Legal Block Section -->
+    <section id="legal" class="container section py-16">
+        <div class="grid md-grid-cols-2 gap-8 items-start">
+            <div>
+                <h2 class="text-2xl font-bold flex items-center gap-2"><i class="fa-solid fa-shield-halved"></i> Юридическая чистота</h2>
+                <p class="mt-2 text-slate-600">Мы работаем «в белую»: агентский договор, акт оказанных услуг, чек самозанятого в приложении «Мой налог». Вознаграждение — маркетинговые услуги/агентские, выплаты только за результат.</p>
+                <ul class="mt-4 space-y-2 text-sm text-slate-600">
+                    <li class="flex items-center gap-2"><i class="fa-solid fa-file-lines"></i> Договор оферты или индивидуальный агентский договор</li>
+                    <li class="flex items-center gap-2"><i class="fa-solid fa-file-lines"></i> Ежемесячные акты и отчёты</li>
+                    <li class="flex items-center gap-2"><i class="fa-solid fa-file-lines"></i> Чеки НПД (самозанятый 4–6%)</li>
+                </ul>
+                <div class="mt-6">
+                    <h3 class="font-semibold mb-3">Документы для скачивания</h3>
+                    <div class="space-y-2">
+                        <a href="/documents/offer.pdf" download class="flex items-center gap-2 text-sm text-blue-600">
+                            <i class="fa-solid fa-download"></i> Договор-оферта
+                        </a>
+                        <a href="/documents/agreement.pdf" download class="flex items-center gap-2 text-sm text-blue-600">
+                            <i class="fa-solid fa-download"></i> Партнёрское соглашение
+                        </a>
+                        <a href="/documents/privacy.pdf" download class="flex items-center gap-2 text-sm text-blue-600">
+                            <i class="fa-solid fa-download"></i> Политика конфиденциальности
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="flex items-center gap-2"><i class="fa-solid fa-book-open"></i> Обоснование для проверок</h3>
+                </div>
+                <div class="card-content text-sm text-slate-600 space-y-3">
+                    <p>Выплаты классифицируются как расходы на продвижение/маркетинг/агентские услуги. Публичная партнёрская программа подтверждает отсутствие «индивидуальных» условий и даёт прозрачный регламент начислений.</p>
+                    <p>Участие добровольное, обязательств по объёму нет. Вознаграждение начисляется только при фактических поставках клиенту.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="container section py-16">
+        <h2 class="text-2xl font-bold mb-6">Частые вопросы</h2>
+        <div class="accordion-container">
+            <div class="accordion-item">
+                <button class="accordion-trigger text-left font-medium">Нужно ли быть самозанятым?</button>
+                <div class="accordion-content text-slate-600 text-sm">Да, это самый простой и официальный способ получать вознаграждение. Регистрация занимает 2 минуты в приложении 'Мой налог'.</div>
+            </div>
+            <div class="accordion-item">
+                <button class="accordion-trigger text-left font-medium">С какой суммы платите процент?</button>
+                <div class="accordion-content text-slate-600 text-sm">База расчёта — сумма сделки без НДС. Выплаты производятся ежемесячно по акту и чеку.</div>
+            </div>
+            <div class="accordion-item">
+                <button class="accordion-trigger text-left font-medium">Что с конфликтом интересов?</button>
+                <div class="accordion-content text-slate-600 text-sm">Мы строим публичную партнёрскую схему. При необходимости вознаграждение может получать не сотрудник клиента, а иной участник (родственник/внешний партнёр), действующий как самозанятый.</div>
+            </div>
+            <div class="accordion-item">
+                <button class="accordion-trigger text-left font-medium">Можно ли начать с одной рекомендации?</button>
+                <div class="accordion-content text-slate-600 text-sm">Да. Нет минимальных требований по объёму.</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section id="contact" class="container section py-16">
+        <div class="card">
+            <div class="card-content p-6 md-p-10 grid md-grid-cols-2 gap-8 items-center">
+                <div>
+                    <h3 class="text-2xl font-bold">Готовы начать?</h3>
+                    <p class="mt-2 text-slate-600">Оставьте контакты — пришлём договор и добавим в партнёрскую программу.</p>
+                    <ul class="mt-4 text-sm text-slate-600 space-y-2">
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check"></i> Подключение за 1 день</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check"></i> Прозрачные начисления</li>
+                        <li class="flex items-center gap-2"><i class="fa-brands fa-telegram"></i> Поддержка в Telegram</li>
+                    </ul>
+                </div>
+                <form id="contact-form" class="grid gap-4">
+                    <div class="grid gap-2">
+                        <label for="name">Имя</label>
+                        <input id="name" name="name" type="text" placeholder="Иван" class="input" required>
+                    </div>
+                    <div class="grid gap-2">
+                        <label for="email">Email</label>
+                        <input id="email" name="email" type="email" placeholder="you@email.ru" class="input" required>
+                    </div>
+                    <div class="grid gap-2">
+                        <label for="phone">Телефон</label>
+                        <input id="phone" name="phone" type="tel" placeholder="+7 (___) ___-__-__" class="input" required>
+                    </div>
+                    <div class="grid gap-2">
+                        <label for="comment">Комментарий</label>
+                        <textarea id="comment" name="comment" placeholder="Компания, ниша, ориентировочные объёмы..." class="textarea"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary rounded-2xl">
+                        Отправить заявку
+                    </button>
+                    <div class="flex items-center gap-2 text-xs text-slate-500 mt-1">
+                        <i class="fa-solid fa-envelope"></i> partner@yourbrand.ru
+                        <i class="fa-solid fa-phone ml-3"></i> +7 900 000-00-00
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-t bg-white">
+        <div class="container py-8 text-sm text-slate-500 flex flex-col md-flex-row gap-4 md-gap-8 items-center justify-between">
+            <div class="flex items-center gap-2"><i class="fa-solid fa-handshake-heart"></i> © <span id="current-year"></span> Партнёрская программа</div>
+            <div class="flex items-center gap-4">
+                <a href="#legal" class="hover:text-slate-900">Правовые документы</a>
+                <a href="#faq" class="hover:text-slate-900">FAQ</a>
+            </div>
+        </div>
     </footer>
-  );
-}
-        // Начиная с import React... и до самого конца
+
+    <script>
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Sticky header
+        const header = document.querySelector('.sticky-header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('bg-white-90', 'shadow-sm', 'backdrop-blur');
+                header.classList.remove('bg-white-70');
+            } else {
+                header.classList.add('bg-white-70');
+                header.classList.remove('bg-white-90', 'shadow-sm', 'backdrop-blur');
+            }
+        });
+
+        // Mobile menu
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            const icon = mobileMenuBtn.querySelector('i');
+            if (mobileMenu.classList.contains('hidden')) {
+                icon.classList.remove('fa-xmark');
+                icon.classList.add('fa-bars');
+            } else {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-xmark');
+            }
+        });
+        
+        // Calculator logic
+        const amountInput = document.getElementById('amount');
+        const percentInput = document.getElementById('percent');
+        const percentRangeInput = document.getElementById('percent-range');
+        const vatSwitch = document.getElementById('vat-switch');
+        const resultBase = document.getElementById('result-base');
+        const resultNet = document.getElementById('result-net');
+        const resultReward = document.getElementById('result-reward');
+
+        function updateCalculator() {
+            const amount = parseFloat(amountInput.value) || 0;
+            const percent = parseFloat(percentInput.value) || 0;
+            const includeVAT = vatSwitch.checked;
+            
+            const netAmount = includeVAT ? Math.round(amount / 1.2) : amount;
+            const reward = Math.round(netAmount * (percent / 100));
+
+            resultBase.textContent = new Intl.NumberFormat('ru-RU').format(amount) + ' ₽';
+            resultNet.textContent = new Intl.NumberFormat('ru-RU').format(netAmount) + ' ₽';
+            resultReward.textContent = new Intl.NumberFormat('ru-RU').format(reward) + ' ₽';
+            
+            // update range input from number input and vice versa
+            if (document.activeElement !== percentRangeInput) {
+                percentRangeInput.value = percent;
+            }
+            if (document.activeElement !== percentInput) {
+                percentInput.value = percent;
+            }
+            resultReward.previousElementSibling.textContent = `Вознаграждение (${percent}% от базы)`;
+        }
+
+        amountInput.addEventListener('input', updateCalculator);
+        percentInput.addEventListener('input', updateCalculator);
+        percentRangeInput.addEventListener('input', updateCalculator);
+        vatSwitch.addEventListener('change', updateCalculator);
+        updateCalculator();
+
+        // Carousel logic
+        const track = document.querySelector('.carousel-track');
+        const prevBtn = document.querySelector('.prev-btn');
+        const nextBtn = document.querySelector('.next-btn');
+        const items = document.querySelectorAll('.carousel-item');
+        let currentIndex = 0;
+
+        function updateCarousel() {
+            const itemWidth = items[0].offsetWidth + 16; // item width + gap
+            const offset = -currentIndex * itemWidth;
+            track.style.transform = `translateX(${offset}px)`;
+        }
+
+        prevBtn.addEventListener('click', () => {
+            currentIndex = (currentIndex - 1 + items.length) % items.length;
+            updateCarousel();
+        });
+
+        nextBtn.addEventListener('click', () => {
+            currentIndex = (currentIndex + 1) % items.length;
+            updateCarousel();
+        });
+
+        window.addEventListener('resize', updateCarousel);
+        updateCarousel();
+
+        // Accordion logic
+        document.querySelectorAll('.accordion-trigger').forEach(trigger => {
+            trigger.addEventListener('click', () => {
+                const parent = trigger.parentElement;
+                const content = parent.querySelector('.accordion-content');
+                parent.classList.toggle('active');
+                if (parent.classList.contains('active')) {
+                    content.style.maxHeight = content.scrollHeight + 'px';
+                } else {
+                    content.style.maxHeight = '0';
+                }
+            });
+        });
+
+        // Form submission
+        const contactForm = document.getElementById('contact-form');
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const submitBtn = this.querySelector('button[type="submit"]');
+            submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin mr-2"></i> Отправка...';
+            submitBtn.disabled = true;
+
+            setTimeout(() => {
+                const parent = document.querySelector('#contact');
+                parent.innerHTML = `
+                    <div class="card">
+                        <div class="card-content p-10 text-center">
+                            <i class="fa-solid fa-circle-check" style="font-size: 4rem; color: var(--green-500); margin-bottom: 1rem;"></i>
+                            <h3 class="text-2xl font-bold mb-2">Заявка отправлена!</h3>
+                            <p class="text-slate-600">Мы свяжемся с вами в течение рабочего дня для обсуждения деталей сотрудничества.</p>
+                        </div>
+                    </div>
+                `;
+            }, 2000);
+        });
     </script>
 </body>
 </html>
