@@ -5,52 +5,72 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Партнёрская программа</title>
 <style>
-    body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f5f5f5; }
-    header { background: #003366; color: white; padding: 50px 20px; text-align: center; }
-    header h1 { margin: 0 0 20px; font-size: 36px; }
-    header p { font-size: 18px; }
-    section { padding: 50px 20px; max-width: 1000px; margin: 0 auto; }
-    h2 { color: #003366; font-size: 28px; margin-bottom: 20px; }
-    .steps { display: flex; flex-wrap: wrap; gap: 20px; }
-    .step { background: white; padding: 20px; flex: 1 1 calc(50% - 20px); border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
-    .step h3 { margin-top: 0; color: #003366; }
-    .contact { background: #003366; color: white; padding: 50px 20px; text-align: center; }
+    body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f9f9f9; color: #333; }
+    header { background: linear-gradient(135deg, #003366, #0055aa); color: white; padding: 60px 20px; text-align: center; position: sticky; top: 0; z-index: 10; }
+    header h1 { margin: 0 0 20px; font-size: 42px; }
+    header p { font-size: 20px; max-width: 700px; margin: 0 auto 20px; }
+    nav { margin-bottom: 20px; }
+    nav a { color: #ffcc00; margin: 0 10px; text-decoration: none; font-weight: bold; }
+    section { padding: 60px 20px; max-width: 1200px; margin: 0 auto; }
+    h2 { color: #003366; font-size: 32px; margin-bottom: 25px; text-align: center; }
+    .steps { display: flex; flex-wrap: wrap; gap: 30px; justify-content: center; }
+    .step { background: white; padding: 25px; flex: 1 1 calc(50% - 30px); border-radius: 15px; box-shadow: 0 6px 15px rgba(0,0,0,0.1); transition: transform 0.3s ease; }
+    .step:hover { transform: translateY(-5px); }
+    .step h3 { margin-top: 0; color: #003366; font-size: 22px; }
+    .step p { font-size: 16px; line-height: 1.5; }
+    .stats { display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; margin-top: 30px; }
+    .stat { background: white; padding: 20px; border-radius: 10px; flex: 1 1 200px; text-align: center; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+    .stat h3 { font-size: 28px; margin: 0; color: #0055aa; }
+    .plans { display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; margin-top: 30px; }
+    .plan { background: white; padding: 25px; border-radius: 15px; flex: 1 1 300px; text-align: center; box-shadow: 0 6px 15px rgba(0,0,0,0.1); }
+    .plan h3 { margin: 0 0 15px; font-size: 22px; color: #003366; }
+    .faq { max-width: 800px; margin: 0 auto; }
+    .faq-item { margin-bottom: 15px; }
+    .faq-item h4 { margin: 0; cursor: pointer; padding: 10px; background: #eee; border-radius: 8px; }
+    .faq-item p { display: none; margin: 0; padding: 10px; background: #fff; border-radius: 0 0 8px 8px; }
+    .contact { background: #003366; color: white; padding: 60px 20px; text-align: center; }
     .contact a { color: #ffcc00; text-decoration: none; }
-    button { background: #003366; color: white; border: none; padding: 15px 25px; font-size: 16px; border-radius: 5px; cursor: pointer; }
-    button:hover { background: #0055aa; }
-    input, select { padding: 10px; margin: 8px 0; width: 100%; border-radius: 5px; border: 1px solid #ccc; }
-    .reward { font-weight: bold; color: #003366; margin-top: 10px; }
+    button { background: #ffcc00; color: #003366; border: none; padding: 18px 30px; font-size: 18px; border-radius: 8px; cursor: pointer; font-weight: bold; }
+    button:hover { background: #ffdb4d; }
+    input, select { padding: 12px; margin: 10px 0; width: 100%; border-radius: 8px; border: 1px solid #ccc; font-size: 16px; }
+    .reward { font-weight: bold; color: #003366; margin-top: 12px; font-size: 18px; }
 
-    /* Мобильные стили */
+    /* Мобильная адаптация */
     @media (max-width: 768px) {
         header h1 { font-size: 28px; }
         header p { font-size: 16px; }
-        section { padding: 30px 15px; max-width: 600px; }
-        h2 { font-size: 22px; margin-bottom: 15px; }
-        .steps { flex-direction: column; gap: 15px; }
-        .step { flex: 1 1 100%; padding: 15px; }
-        button { padding: 12px 20px; font-size: 16px; }
+        nav a { display: block; margin: 5px 0; }
+        .steps, .plans, .stats { flex-direction: column; gap: 20px; }
+        .step, .plan, .stat { flex: 1 1 100%; }
+        section { padding: 30px 15px; }
     }
 </style>
 </head>
 <body>
 
 <header>
+    <nav>
+        <a href="#how">Как работает</a>
+        <a href="#stats">Статистика</a>
+        <a href="#plans">Планы</a>
+        <a href="#faq">FAQ</a>
+        <a href="#signup">Присоединиться</a>
+    </nav>
     <h1>Партнёрская программа</h1>
     <p>Официальный доход за продвижение товаров — легально, прозрачно и выгодно.</p>
     <button onclick="document.getElementById('signup').scrollIntoView({behavior:'smooth'})">Присоединиться</button>
 </header>
 
-<section>
+<section id="how">
     <h2>Как это работает</h2>
     <div class="steps">
         <div class="step">
             <h3>1. Регистрация</h3>
-            <p>Оформляешься как самозанятый или ИП.</p>
+            <p>Оформляешься как самозанятый или ИП. Мы заключаем договор.</p>
         </div>
         <div class="step">
             <h3>2. Продвижение</h3>
-            <p>Рекомендуешь нашу продукцию внутри компании.</p>
+            <p>Рекомендуешь нашу продукцию у себя в компании.</p>
         </div>
         <div class="step">
             <h3>3. Сделка</h3>
@@ -58,20 +78,47 @@
         </div>
         <div class="step">
             <h3>4. Вознаграждение</h3>
-            <p>Получаешь % от сделки официально на карту.</p>
+            <p>Получаешь % от сделки официально.</p>
         </div>
     </div>
 </section>
 
-<section>
-    <h2>Почему это безопасно</h2>
-    <p>Всё работает официально через налоговый режим «Самозанятый». Договор и акт закрепляют ваши права, а доход полностью легален.</p>
+<section id="stats">
+    <h2>Наши результаты</h2>
+    <div class="stats">
+        <div class="stat"><h3>150+</h3><p>Партнёров</p></div>
+        <div class="stat"><h3>50M₽</h3><p>Оборот</p></div>
+        <div class="stat"><h3>98%</h3><p>Довольных участников</p></div>
+    </div>
+</section>
+
+<section id="plans">
+    <h2>Планы вознаграждений</h2>
+    <div class="plans">
+        <div class="plan"><h3>Старт</h3><p>5% от сделки</p></div>
+        <div class="plan"><h3>Профи</h3><p>7% от сделки</p></div>
+        <div class="plan"><h3>Партнёр</h3><p>10% от сделки</p></div>
+    </div>
+</section>
+
+<section id="faq">
+    <h2>FAQ</h2>
+    <div class="faq">
+        <div class="faq-item">
+            <h4>Зачем нужна регистрация как самозанятый?</h4>
+            <p>Это позволяет получать доход легально и официально.</p>
+        </div>
+        <div class="faq-item">
+            <h4>Как рассчитывается вознаграждение?</h4>
+            <p>Вознаграждение — процент от суммы сделки, который закреплён в договоре.</p>
+        </div>
+    </div>
 </section>
 
 <section id="signup">
     <h2>Присоединяйся</h2>
-    <p>Оставь свои контакты и рассчитай своё вознаграждение.</p>
-    <form onsubmit="alert('Спасибо! Мы свяжемся с вами.'); return false;">
+    <p style="text-align:center;font-size:18px;">Оставь свои контакты и рассчитай свой доход прямо сейчас.</p>
+    <form onsubmit="alert('Спасибо! Мы свяжемся с вами.'); return false;" style="max-width:600px;margin:0 auto;">
         <input type="text" placeholder="Имя" required>
         <input type="email" placeholder="Email" required>
         <input type="tel" placeholder="Телефон" required>
@@ -94,6 +141,7 @@
 </section>
 
 <script>
+    // Авторасчёт вознаграждения
     const dealAmount = document.getElementById('dealAmount');
     const percent = document.getElementById('percent');
     const rewardDisplay = document.getElementById('rewardDisplay');
@@ -107,6 +155,14 @@
 
     dealAmount.addEventListener('input', calculateReward);
     percent.addEventListener('change', calculateReward);
+
+    // FAQ раскрытие
+    document.querySelectorAll('.faq-item h4').forEach(h => {
+        h.addEventListener('click', () => {
+            const p = h.nextElementSibling;
+            p.style.display = p.style.display === 'block' ? 'none' : 'block';
+        });
+    });
 </script>
 
 </body>
